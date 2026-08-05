@@ -1,0 +1,92 @@
+li {
+  margin-bottom: 2px !important;
+}
+
+p {
+  margin-top: 0 !important;
+  margin-bottom: 4px !important;
+}
+
+h1, h2, h3 {
+  margin-bottom: 6px !important;
+}
+
+code {
+  font-family: "Fira Code", "Consolas", monospace;
+  background: rgba(56, 189, 248, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+pre {
+  text-align: left;
+  font-family: "Fira Code", "Consolas", monospace;
+  font-size: 16px;
+  line-height: 1.5;
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 16px 20px;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.db-table {
+  border-collapse: collapse;
+  font-family: "Fira Code", "Consolas", monospace;
+  font-size: 18px;
+  margin: 8px auto;
+}
+.db-table th {
+  background: #334155;
+  color: #38bdf8;
+  padding: 6px 16px;
+  border: 1px solid #475569;
+  text-align: left;
+}
+.db-table td {
+  background: #1e293b;
+  color: #e2e8f0;
+  padding: 6px 16px;
+  border: 1px solid #475569;
+}
+
+.http-box {
+  text-align: left;
+  font-family: "Fira Code", "Consolas", monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid #334155;
+  margin: 8px 0;
+}
+.http-box .method {
+  color: #22d3ee;
+  font-weight: bold;
+}
+.http-box .path {
+  color: #e2e8f0;
+}
+.http-box .header-name {
+  color: #a78bfa;
+}
+.http-box .header-value {
+  color: #fbbf24;
+}
+.http-box .body-key {
+  color: #38bdf8;
+}
+.http-box .body-value {
+  color: #4ade80;
+}
+.http-box .secret {
+  color: #f87171;
+}
+.http-box .comment {
+  color: #64748b;
+  font-style: italic;
+}

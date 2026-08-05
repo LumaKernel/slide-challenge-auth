@@ -1,0 +1,28 @@
+{
+  "name": "slide-learn-challenge-auth",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "_lint:prettier": "prettier . --check",
+    "lint": "prettier . --check",
+    "lint-fix": "prettier . --write"
+  },
+  "dependencies": {
+    "@qnighy/dedent": "^0.1.1",
+    "react": "^18.3",
+    "react-dom": "^18.3",
+    "spectacle": "^10.2.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3",
+    "@types/react-dom": "^18.3",
+    "@vitejs/plugin-react": "^4.7",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9",
+    "vite": "^6.4"
+  }
+}
