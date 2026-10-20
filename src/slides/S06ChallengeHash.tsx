@@ -16,7 +16,7 @@ export function S06ChallengeHash(): ReactNode {
           <span className="body-value">"alice"</span>,
           <br />
           {"  "}<span className="body-key">"hash"</span>:{" "}
-          <span className="body-value">"H(pw)"</span> {"}"}
+          <span className="body-value">H(<span className="pw">pw</span>)</span> {"}"}
           <br />
           <br />
           <span className="comment">→ パスワード自体は送らない</span>
@@ -38,7 +38,7 @@ export function S06ChallengeHash(): ReactNode {
             <span className="body-value">"alice"</span>,
             <br />
             {"  "}<span className="body-key">"response"</span>:{" "}
-            <span className="body-value">"H(challenge ‖ H(pw))"</span> {"}"}
+            <span className="body-value">H(challenge ‖ H(<span className="pw">pw</span>))</span> {"}"}
             <br />
             <span className="comment">Server: H(challenge ‖ stored_hash) と比較</span>
           </HttpBox>
@@ -52,12 +52,12 @@ export function S06ChallengeHash(): ReactNode {
             [
               1,
               "alice",
-              <span key="h" style={{ color: "#4ade80", fontSize: "14px" }}>H(pw)</span>,
+              <span key="h" style={{ color: "#4ade80", fontSize: "14px" }}>H(<span className="pw">pw</span>)</span>,
             ],
             [
               2,
               "bob",
-              <span key="h" style={{ color: "#4ade80", fontSize: "14px" }}>H(pw)</span>,
+              <span key="h" style={{ color: "#4ade80", fontSize: "14px" }}>H(<span className="pw">pw</span>)</span>,
             ],
           ]}
         />

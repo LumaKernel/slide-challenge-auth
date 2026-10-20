@@ -27,7 +27,7 @@ export function S05CHAP(): ReactNode {
             <span className="body-value">"alice"</span>,
             <br />
             {"  "}<span className="body-key">"response"</span>:{" "}
-            <span className="body-value">"H(challenge ‖ password)"</span> {"}"}
+            <span className="body-value">H(challenge ‖ <span className="pw">pw</span>)</span> {"}"}
             <br />
             <br />
             <span className="comment">→ パスワード自体は送らない</span>

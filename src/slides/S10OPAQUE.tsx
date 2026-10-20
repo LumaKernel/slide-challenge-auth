@@ -9,33 +9,63 @@ export function S10OPAQUE(): ReactNode {
       <Slide>
         <Heading fontSize="h2">OPAQUE（aPAKE, RFC 9807）</Heading>
         <FlexBox alignItems="flex-start" justifyContent="center" flexWrap="wrap" style={{ gap: "16px" }}>
-          <HttpBox title="Registration（OPRF + Envelope）">
-            <span className="comment">Client:</span>
-            <br />
-            <span className="body-value">blind = Blind(pw)</span>
-            <br />
+          <HttpBox title="1. Registration（OPRF + Envelope）">
             <span className="method">POST</span>{" "}
             <span className="path">/register/init</span>
             <br />
-            {"{"} <span className="body-key">"blinded"</span>:{" "}
-            <span className="body-value">"H(pw)^r"</span> {"}"}
+            {"{"} <span className="body-key">"user"</span>:{" "}
+            <span className="body-value">"alice"</span>,
+            <br />
+            {"  "}<span className="body-key">"blinded"</span>:{" "}
+            <span className="body-value">H(<span className="pw">pw</span>)<sup>r</sup></span> {"}"}
+            {"  "}<span className="comment">← r はクライアントの乱数</span>
             <br />
             <br />
-            <span className="comment">Server evaluates OPRF, returns envelope</span>
+            <span className="comment">←</span>{" "}
+            {"{"} <span className="body-key">"evaluated"</span>:{" "}
+            <span className="body-value">H(<span className="pw">pw</span>)<sup>rk</sup></span>,
             <br />
-            <span className="comment">Client stores nothing; Server stores record</span>
+            {"  "}<span className="body-key">"server_pub"</span>:{" "}
+            <span className="body-value">"pk_s"</span> {"}"}
+            {"  "}<span className="comment">← k はサーバの OPRF 鍵</span>
+            <br />
+            <br />
+            <span className="method">POST</span>{" "}
+            <span className="path">/register/finish</span>
+            <br />
+            {"{"} <span className="body-key">"envelope"</span>:{" "}
+            <span className="body-value">Enc(rwd, {"{sk, pk}"})</span> {"}"}
+            <br />
+            <span className="comment">← rwd = H(<span className="pw">pw</span>)<sup>k</sup> から導出した鍵で暗号化</span>
           </HttpBox>
-          <HttpBox title="Login（AKE）">
-            <span className="comment">Client → blind OPRF + KE1</span>
+          <HttpBox title="2. Login（AKE）">
+            <span className="method">POST</span>{" "}
+            <span className="path">/login/init</span>
             <br />
-            <span className="comment">Server → OPRF eval + KE2</span>
+            {"{"} <span className="body-key">"user"</span>:{" "}
+            <span className="body-value">"alice"</span>,
             <br />
-            <span className="comment">Client recovers keys from envelope</span>
+            {"  "}<span className="body-key">"blinded"</span>:{" "}
+            <span className="body-value">H(<span className="pw">pw</span>)<sup>r</sup></span>,
             <br />
-            <span className="comment">Client → KE3</span>
+            {"  "}<span className="body-key">"KE1"</span>:{" "}
+            <span className="body-value">"..."</span> {"}"}
             <br />
             <br />
-            <span className="body-value">→ mutual auth + session key</span>
+            <span className="comment">←</span>{" "}
+            {"{"} <span className="body-key">"evaluated"</span>,{" "}
+            <span className="body-key">"envelope"</span>,{" "}
+            <span className="body-key">"KE2"</span> {"}"}
+            <br />
+            <span className="comment">← クライアントは rwd を復元し envelope を復号</span>
+            <br />
+            <br />
+            <span className="method">POST</span>{" "}
+            <span className="path">/login/finish</span>
+            <br />
+            {"{"} <span className="body-key">"KE3"</span>:{" "}
+            <span className="body-value">"..."</span> {"}"}
+            {"  "}<span className="comment">← 相互認証完了 + セッション鍵確立</span>
           </HttpBox>
         </FlexBox>
         <FlexBox justifyContent="center" style={{ marginTop: "12px" }}>

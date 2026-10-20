@@ -41,13 +41,13 @@ export function S03HashedPassword(): ReactNode {
                 1,
                 "alice",
                 <span key="s" style={{ color: "#fbbf24", fontSize: "14px" }}>a1b2c3...</span>,
-                <span key="h" style={{ color: "#4ade80", fontSize: "14px" }}>PBKDF2(pw, salt, 100000)</span>,
+                <span key="h" style={{ color: "#4ade80", fontSize: "14px" }}>PBKDF2(<span className="pw">pw</span>, salt, 100000)</span>,
               ],
               [
                 2,
                 "bob",
                 <span key="s" style={{ color: "#fbbf24", fontSize: "14px" }}>d4e5f6...</span>,
-                <span key="h" style={{ color: "#4ade80", fontSize: "14px" }}>PBKDF2(pw, salt, 100000)</span>,
+                <span key="h" style={{ color: "#4ade80", fontSize: "14px" }}>PBKDF2(<span className="pw">pw</span>, salt, 100000)</span>,
               ],
             ]}
           />

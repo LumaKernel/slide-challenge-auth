@@ -90,3 +90,8 @@ pre {
   color: #64748b;
   font-style: italic;
 }
+
+.pw {
+  color: #f87171;
+  font-weight: bold;
+}

@@ -3,12 +3,14 @@ import { type ReactNode } from "react";
 export function HttpBox({
   children,
   title,
+  flex,
 }: {
   readonly children: ReactNode;
   readonly title?: string;
+  readonly flex?: string;
 }): ReactNode {
   return (
-    <div style={{ flex: "1 1 0", minWidth: 0 }}>
+    <div style={{ flex: flex ?? "1 1 0", minWidth: 0 }}>
       {title != null && (
         <div
           style={{

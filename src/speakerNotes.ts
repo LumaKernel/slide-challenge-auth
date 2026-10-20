@@ -56,7 +56,21 @@ export const speakerNotes: readonly string[] = [
     SRP-6aはPAKEの代表格。
     登録時はverifierだけを送り、認証時は鍵交換で相互証明する。
     サーバはパスワードを一度も見ない。
-    ただしverifierが漏洩するとオフライン辞書攻撃が可能。`,
+    ただしverifierが漏洩するとオフライン辞書攻撃が可能。
+
+    g と N は RFC 5054 で定義された固定パラメータ。
+    7グループ（1024/1536/2048/3072/4096/6144/8192 bit）が用意されていて、
+    すべて g = 2、N だけサイズが異なるsafe prime。
+    gはprimitive rootではなく、位数qの部分群（N = 2q+1）の生成元。
+
+    前提となる数論的仮定:
+    1. 離散対数問題（DLP）: g^x mod N から x を逆算できない。
+       verifier v = g^x からパスワード由来の x を復元不可。
+    2. 計算Diffie-Hellman仮定（CDH）: g^a と g^b から g^(ab) を計算できない。
+       盗聴者が A, B を見ても共有秘密 S を計算不可。
+    3. B = kv + g^b の構造: v を知らない攻撃者は kv と g^b を分離できない。
+       パスワード（= verifier）を知る者だけが B から g^b を取り出せる。
+    DLPが破れれば全部崩壊する。量子計算機（Shor）で破れるのもこの系統。`,
 
   // 9: S10OPAQUE
   dedent`\
